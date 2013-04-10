@@ -26,7 +26,7 @@ public class AbstractDaoImpl {
 			e.printStackTrace();
 		}finally{
 			//em.close();
-			//emf.close();
+			//emf.close(); 
 		}
 	}
 }
