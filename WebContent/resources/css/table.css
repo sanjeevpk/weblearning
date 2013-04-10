@@ -1,0 +1,15 @@
+.tableDetail{
+	border: 1px solid; 
+	width: 60%;
+}
+
+.tableDetailWithoutBorder{
+	width: 100%;
+}
+
+
+.leftTextTD{
+	text-align:left
+	font-size:15px
+	width:150px;
+}
