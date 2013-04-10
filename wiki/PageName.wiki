@@ -1,0 +1,17 @@
+#labels Featured,Phase-Deploy
+#WebLearning 
+= Introduction =
+
+WebLearning is an attempt to simplify the creation of simple web application. As the name indicates WebLearning is a project to learn the simple web application using Java/J2EE technologies.
+
+
+= Details =
+
+To run the project just checkout the project and import the project into an IDE(I prefer Eclipse though). Then right click on the project and give Run As--> Run on server(Hopefully you have installed any web server like Tomcat, I am using tomcat 7).
+
+Wait wait! We have to create a simple database isn't it?
+
+Yes Sir. So download and install MySQL Database and create a database called  "web_learning".
+
+That's it now you will be able to run and see the registration page.:)
+
