@@ -1,5 +1,5 @@
 #labels Featured,Phase-Deploy
-#WebLearning 
+WebLearning 
 = Introduction =
 
 WebLearning is an attempt to simplify the creation of simple web application. As the name indicates WebLearning is a project to learn the simple web application using Java/J2EE technologies.
@@ -14,4 +14,3 @@ Wait wait! We have to create a simple database isn't it?
 Yes Sir. So download and install MySQL Database and create a database called  "web_learning".
 
 That's it now you will be able to run and see the registration page.:)
-
