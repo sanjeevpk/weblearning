@@ -8,6 +8,47 @@
 	
 	<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 	<!-- <script type="text/javascript" src="resources/js/ajax.js"></script> -->
+	
+	<style type="text/css">
+		* { 
+				font-family: Verdana; 
+				font-size: 96%; 
+			}
+		
+		label { 
+				width: 10em; 
+				float: left; 
+		}
+		
+		label.error { 
+			float: none; 
+			color: red; 
+			padding-left: .5em; 
+			vertical-align: top; 
+		}
+
+		p { 
+			clear: both; 
+		}
+
+		.submit { 
+			margin-left: 12em; 
+		}
+
+		em { 
+			font-weight: bold; 
+			padding-right: 1em; 
+			vertical-align: top; 
+		}
+		error
+		{
+			font-family: Verdana; 
+			font-size: 96%; 
+			color : red;
+		}
+</style>
+	
+	
 	<script type="text/javascript">
 	
 	function getXMLObject()  //XML OBJECT
@@ -36,9 +77,22 @@
 	var xmlhttp = new getXMLObject();
 	
 	function ajaxFunction() {
-		  if(xmlhttp) {
+		if(xmlhttp) {
 		  	var name = document.getElementById("nameTextField");
 		  	var email = document.getElementById("emailTextField");
+		  	
+		  	if(name.value == '')
+		  	{
+		  	document.getElementById('error').innerHTML="Please Enter Username";
+		  	return false;
+		  	}
+		  	
+		  	if(email.value == '')
+		  	{
+		  	document.getElementById('error').innerHTML="Please Enter Email";
+		  	return false;
+		  	}
+		  	
 		    xmlhttp.open("POST","registration",true); //getname will be the servlet name
 		    xmlhttp.onreadystatechange  = handleServerResponse;
 		    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -48,13 +102,15 @@
 		 
 		function handleServerResponse() {
 		   if (xmlhttp.readyState == 4) {
-			   alert(xmlhttp.status);
+			   //alert(xmlhttp.status);
 		     if(xmlhttp.status == 200) {
-		    	 alert("writing result"+xmlhttp.responseText);
+		    	 //alert("writing result"+xmlhttp.responseText);
 		    	 document.getElementById("hello").innerHTML = xmlhttp.responseText; //Update the HTML Form element
 		    	 document.getElementById("nameTextField").value = "";
 		    	 document.getElementById("nameTextField").focus();
 		    	 document.getElementById("emailTextField").value = "";
+		    	 document.getElementById("error").innerHTML = "";
+		    	 document.getElementById("password").innerHTML = "";
 		     }
 		     else {
 		        alert("Error during AJAX call. Please try again");
@@ -99,8 +155,8 @@
 	</script>
 	</head>
 
-	<body>
-		<form method="POST" action="registration" name ="myForm"> 
+	<body><div id="error" style="color:red"></div>
+		<form method="POST" action="registration" name ="myForm" id="myForm"> 
 			<table>
 				<tr>
 					<td>
@@ -109,7 +165,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="nameTextField" id="nameTextField">
+						<input type="text" name="nameTextField" id="nameTextField" class="required">
 					</td>
 				</tr>
 				<tr>
@@ -128,7 +184,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Register" onclick="ajaxFunction()">
+						<input type="button" value="Register" onclick="return ajaxFunction()">
 					</td>
 				</tr>
 			</table>
